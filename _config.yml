@@ -1,0 +1,13 @@
+# Site settings
+# See https://jekyllrb.com/docs/configuration/options/
+title: Radar Migratorio
+email: tu-email@ejemplo.com
+description: >-  
+  Plataforma de información y reportes para Radar Migratorio.
+baseurl: "" # el subdirectorio del sitio, e.g. /blog
+url: "" # la URL base del sitio
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
