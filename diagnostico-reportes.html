@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagnóstico Sistema de Reportes</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 2rem;
+        background: #f5f5f5;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .test {
+        background: #f8f9fa;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 4px;
+        border-left: 4px solid #007bff;
+      }
+      .success {
+        border-left-color: #28a745;
+        background: #d4edda;
+      }
+      .error {
+        border-left-color: #dc3545;
+        background: #f8d7da;
+      }
+      .warning {
+        border-left-color: #ffc107;
+        background: #fff3cd;
+      }
+      button {
+        background: #007bff;
+        color: white;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 0.5rem;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      pre {
+        background: #f8f9fa;
+        padding: 1rem;
+        border-radius: 4px;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🔧 Diagnóstico del Sistema de Reportes</h1>
+
+      <div id="diagnostics"></div>
+
+      <div>
+        <button onclick="runDiagnostics()">🔄 Ejecutar Diagnóstico</button>
+        <button onclick="fixIssues()">🛠️ Intentar Reparar</button>
+        <button onclick="goToAdmin()">👨‍💼 Ir al Admin</button>
+      </div>
+    </div>
+
+    <script src="assets/js/dataManager.js"></script>
+    <script>
+      function addTest(title, result, details = '') {
+        const div = document.getElementById('diagnostics')
+        const testDiv = document.createElement('div')
+        testDiv.className = `test ${result}`
+        testDiv.innerHTML = `
+                <h3>${title}</h3>
+                <p>${details}</p>
+            `
+        div.appendChild(testDiv)
+      }
+
+      function runDiagnostics() {
+        document.getElementById('diagnostics').innerHTML = '<h2>Ejecutando diagnósticos...</h2>'
+
+        // Test 1: DataManager disponible
+        try {
+          const dm = new DataManager()
+          addTest('✅ DataManager', 'success', 'DataManager se inicializa correctamente')
+
+          // Test 2: Función obtenerReportes existe
+          if (typeof dm.obtenerReportes === 'function') {
+            addTest('✅ Función obtenerReportes', 'success', 'La función existe en DataManager')
+
+            // Test 3: Obtener reportes
+            try {
+              const reportes = dm.obtenerReportes()
+              addTest(
+                '✅ Obtener reportes',
+                'success',
+                `Se obtuvieron ${reportes.length} reportes del sistema`
+              )
+
+              // Test 4: localStorage
+              const localStorage_reportes = localStorage.getItem('radarMigratorio_reportes')
+              if (localStorage_reportes) {
+                const parsed = JSON.parse(localStorage_reportes)
+                addTest(
+                  '✅ localStorage reportes',
+                  'success',
+                  `${parsed.length} reportes en localStorage`
+                )
+              } else {
+                addTest('⚠️ localStorage reportes', 'warning', 'No hay reportes en localStorage')
+              }
+
+              // Test 5: Estructura de reportes
+              if (reportes.length > 0) {
+                const primerReporte = reportes[0]
+                const camposEsperados = ['id', 'tipo', 'descripcion', 'estado', 'prioridad']
+                const camposPresentes = camposEsperados.filter((campo) =>
+                  primerReporte.hasOwnProperty(campo)
+                )
+                addTest(
+                  '✅ Estructura de reportes',
+                  'success',
+                  `Campos presentes: ${camposPresentes.join(', ')}`
+                )
+              } else {
+                addTest(
+                  '⚠️ Estructura de reportes',
+                  'warning',
+                  'No hay reportes para verificar estructura'
+                )
+              }
+            } catch (error) {
+              addTest('❌ Obtener reportes', 'error', `Error: ${error.message}`)
+            }
+          } else {
+            addTest('❌ Función obtenerReportes', 'error', 'La función no existe en DataManager')
+          }
+
+          // Test 6: Función guardarReporte existe
+          if (typeof dm.guardarReporte === 'function') {
+            addTest('✅ Función guardarReporte', 'success', 'La función existe en DataManager')
+          } else {
+            addTest('❌ Función guardarReporte', 'error', 'La función no existe en DataManager')
+          }
+        } catch (error) {
+          addTest('❌ DataManager', 'error', `Error al inicializar: ${error.message}`)
+        }
+
+        // Test 7: Admin dashboard structure
+        fetch('admin/admin-dashboard.html')
+          .then((response) => response.text())
+          .then((html) => {
+            if (html.includes('lista-reportes')) {
+              addTest(
+                '✅ HTML Admin Dashboard',
+                'success',
+                'Contenedor lista-reportes encontrado en HTML'
+              )
+            } else {
+              addTest(
+                '❌ HTML Admin Dashboard',
+                'error',
+                'Contenedor lista-reportes NO encontrado en HTML'
+              )
+            }
+          })
+          .catch((error) => {
+            addTest('❌ HTML Admin Dashboard', 'error', `Error leyendo archivo: ${error.message}`)
+          })
+
+        // Test 8: Verificar admin.js
+        fetch('admin/admin.js')
+          .then((response) => response.text())
+          .then((js) => {
+            if (js.includes('function cargarReportes')) {
+              addTest(
+                '✅ Admin.js cargarReportes',
+                'success',
+                'Función cargarReportes encontrada en admin.js'
+              )
+            } else {
+              addTest(
+                '❌ Admin.js cargarReportes',
+                'error',
+                'Función cargarReportes NO encontrada en admin.js'
+              )
+            }
+          })
+          .catch((error) => {
+            addTest('❌ Admin.js', 'error', `Error leyendo archivo: ${error.message}`)
+          })
+      }
+
+      function fixIssues() {
+        try {
+          const dm = new DataManager()
+
+          // Crear reporte de prueba si no hay ninguno
+          const reportes = dm.obtenerReportes()
+          if (reportes.length === 0) {
+            const reportePrueba = {
+              id: 'REP-TEST-001',
+              tipo: 'documentos-falsos',
+              descripcion: 'Reporte de prueba creado automáticamente por el sistema de diagnóstico',
+              ubicacion: 'Ubicación de prueba',
+              fecha_incidente: new Date().toISOString(),
+              prioridad: 'media',
+              fecha_reporte: new Date().toISOString(),
+              estado: 'pendiente',
+            }
+
+            dm.guardarReporte(reportePrueba)
+            addTest('🛠️ Reparación', 'success', 'Reporte de prueba creado exitosamente')
+          } else {
+            addTest(
+              'ℹ️ Reparación',
+              'success',
+              'Ya existen reportes, no es necesario crear datos de prueba'
+            )
+          }
+
+          // Verificar localStorage después de la reparación
+          const reportesActualizados = dm.obtenerReportes()
+          addTest(
+            '✅ Verificación post-reparación',
+            'success',
+            `Total de reportes: ${reportesActualizados.length}`
+          )
+        } catch (error) {
+          addTest('❌ Reparación', 'error', `Error durante la reparación: ${error.message}`)
+        }
+      }
+
+      function goToAdmin() {
+        window.location.href = 'admin/admin-login.html'
+      }
+
+      // Ejecutar diagnósticos automáticamente al cargar
+      window.onload = () => {
+        setTimeout(runDiagnostics, 500)
+      }
+    </script>
+  </body>
+</html>

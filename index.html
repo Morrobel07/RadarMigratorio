@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Radar Migratorio - Portal oficial para denuncias y seguimiento de delitos migratorios en República Dominicana"
+    />
+    <meta
+      name="keywords"
+      content="migración, República Dominicana, denuncias, delitos migratorios, radar"
+    />
+    <title>Radar Migratorio RD - Portal Oficial</title>
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <!-- Chart.js para visualizaciones -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <!-- Encabezado -->
+      <div class="logo">
+        <a href="index.html">
+          <img src="assets/img/RadarMigratorio_.svg" alt="logo de la Marca" />
+        </a>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#noticias">noticias</a></li>
+          <li><a href="#historias">historias</a></li>
+          <li><a href="#estadisticas">Estadisticas</a></li>
+          <li><a href="#contactos">Contactos</a></li>
+          <li><a href="admin/admin-login.html">Admin</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botones de acción -->
+      <div class="acciones-header">
+        <a href="pages/denuncia.html" class="btn-denunciar">🚨 Denunciar Delito</a>
+        <a href="pages/reporte-actividad.html" class="btn-reportar">📢 Reportar Actividad</a>
+      </div>
+
+      <div class="idioma">
+        <select name="language" id="language-select">
+          <option value="es">Es</option>
+          <option value="en">En</option>
+          <option value="fr">Fr</option>
+        </select>
+      </div>
+
+      <!-- </div>
+      <div class="idioma">
+        <select name="language" id="language-select">
+          <option value="es">Es</option>
+          <option value="en">En</option>
+          <option value="fr">Fr</option>
+        </select>
+      </div> -->
+      <!-- Inicio sc -->
+      <!-- F -->
+      <!-- <div class="acceso">
+        <a href="#">Iniciar sesión</a>
+      </div> -->
+    </header>
+
+    <!-- Portada -->
+    <section class="hero" id="inicio">
+      <div class="contenido-hero">
+        <h1>Radar Migratorio RD</h1>
+        <p>Información, estadísticas y recursos sobre migración en República Dominicana</p>
+
+        <div class="botones-hero">
+          <a href="#estadisticas" class="btn-primario">Ver estadísticas</a>
+          <a href="#recursos" class="btn-secundario">Recursos legales</a>
+        </div>
+      </div>
+      <div class="imagen-hero">
+        <img src="assets/img/primera.jpg" alt="Migración RD" />
+      </div>
+    </section>
+
+    <section class="noticias" id="noticias">
+      <h2>Noticias y Alertas</h2>
+      <div class="cards-info">
+        <div class="card noticia">
+          <div class="icono">📰</div>
+          <h3>Nuevo proceso de regularización migratoria</h3>
+          <p>
+            El gobierno dominicano anuncia la apertura de un nuevo proceso para regularizar el
+            estatus migratorio de extranjeros residentes en el país.
+          </p>
+          <span class="fecha">23 de julio 2025</span>
+          <a href="pages/noticia-regularizacion.html" class="btn-leer">Leer más</a>
+        </div>
+        <div class="card noticia alerta">
+          <div class="icono">⚠️</div>
+          <h3>Alerta sobre estafas migratorias</h3>
+          <p>
+            Las autoridades advierten sobre la proliferación de estafas relacionadas con trámites
+            migratorios. Verifica siempre en fuentes oficiales.
+          </p>
+          <span class="fecha">21 de julio 2025</span>
+          <a href="pages/alerta-estafas.html" class="btn-leer">Ver detalles</a>
+        </div>
+        <div class="card noticia">
+          <div class="icono">📈</div>
+          <h3>Informe de flujos migratorios 2025</h3>
+          <p>
+            Se publica el informe anual con estadísticas actualizadas sobre migración en República
+            Dominicana.
+          </p>
+          <span class="fecha">15 de julio 2025</span>
+          <a href="Qui.pdf" class="btn-leer">Descargar informe</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estadisticas migratorias -->
+    <section class="estadisticas" id="estadisticas">
+      <div class="contenido">
+        <h2>Estadísticas Migratorias</h2>
+
+        <!-- Filtros opcionales -->
+        <div class="filtros">
+          <label for="anio">Año:</label>
+          <select id="anio" name="anio">
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+          </select>
+
+          <label for="origen">País de origen:</label>
+          <select id="origen" name="origen">
+            <option value="todos">Todos</option>
+            <option value="haiti">Haití</option>
+            <option value="venezuela">Venezuela</option>
+            <option value="colombia">Colombia</option>
+          </select>
+
+          <label for="genero">Género:</label>
+          <select id="genero" name="genero">
+            <option value="todos">Todos</option>
+            <option value="femenino">Femenino</option>
+            <option value="masculino">Masculino</option>
+            <option value="otro">Otro</option>
+          </select>
+          <button id="btn-buscar" class="btn-primario" type="button">Buscar</button>
+        </div>
+        <div class="graficas">
+          <canvas id="barrasChart"></canvas>
+          <canvas id="lineasChart"></canvas>
+        </div>
+        <div id="mapa-migratorio"></div>
+      </div>
+    </section>
+
+    <section class="recursos" id="recursos">
+      <h2>Recursos y Servicios</h2>
+      <p class="descripcion-portal">
+        Este portal ofrece información, apoyo y herramientas para la comunidad migrante y la
+        ciudadanía en República Dominicana. Aquí puedes consultar alertas, reportar actividades
+        sospechosas, buscar personas extranjeras requeridas por la justicia y conocer casos de abuso
+        en procesos migratorios.
+      </p>
+      <div class="sistema-busquedas">
+        <h3>Personas Extranjeras Buscadas</h3>
+        <div class="cards-info">
+          <div class="card buscado">
+            <h4>Nombre: Carlos Méndez</h4>
+            <p>País: Venezuela</p>
+            <p>Motivo: Fraude migratorio</p>
+            <span class="alerta">Requerido por la justicia</span>
+          </div>
+          <div class="card buscado">
+            <h4>Nombre: Jean Louis</h4>
+            <p>País: Haití</p>
+            <p>Motivo: Tráfico de documentos</p>
+            <span class="alerta">Requerido por la justicia</span>
+          </div>
+        </div>
+      </div>
+      <div class="abusos-migratorios">
+        <h3>Casos de Abuso en Procesos Migratorios</h3>
+        <div class="cards-info">
+          <div class="card abuso">
+            <h4>Nombre: Ana Rodríguez</h4>
+            <p>País: Colombia</p>
+            <p>Situación: Retención injustificada de documentos por gestor.</p>
+            <span class="alerta-abuso">Caso reportado</span>
+          </div>
+          <div class="card abuso">
+            <h4>Nombre: Pierre Baptiste</h4>
+            <p>País: Haití</p>
+            <p>Situación: Cobro excesivo y amenazas durante trámite de residencia.</p>
+            <span class="alerta-abuso">Caso reportado</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-logo">
+        <img src="assets/img/RadarMigratorio_.svg" alt="Logo Footer" />
+      </div>
+      <div class="enlaces-footer">
+        <a href="#inicio">Inicio</a>
+        <a href="#estadisticas">Estadísticas</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="creditos">Radar Migratorio RD &copy; 2025</div>
+      <!-- Agrega esta sección antes del footer -->
+      <section class="contactos" id="contactos">
+        <h2>Contactos de Apoyo</h2>
+        <div class="cards-info">
+          <div class="card">
+            <h3>Dirección General de Migración</h3>
+            <p>
+              Teléfono:
+              <a href="tel:+18096878811">809-687-8811</a>
+            </p>
+            <p>
+              Email:
+              <a href="mailto:info@migracion.gob.do">info@migracion.gob.do</a>
+            </p>
+            <p>
+              Web:
+              <a href="https://migracion.gob.do/" target="_blank">migracion.gob.do</a>
+            </p>
+          </div>
+          <div class="card">
+            <h3>Defensor del Pueblo</h3>
+            <p>
+              Teléfono:
+              <a href="tel:+18092222222">809-222-2222</a>
+            </p>
+            <p>
+              Email:
+              <a href="mailto:contacto@defensordelpueblo.gob.do">
+                contacto@defensordelpueblo.gob.do
+              </a>
+            </p>
+            <p>
+              Web:
+              <a href="https://defensordelpueblo.gob.do/" target="_blank">
+                defensordelpueblo.gob.do
+              </a>
+            </p>
+          </div>
+          <div class="card">
+            <h3>OIM República Dominicana</h3>
+            <p>
+              Teléfono:
+              <a href="tel:+18096878888">809-687-8888</a>
+            </p>
+            <p>
+              Email:
+              <a href="mailto:info@iom.int">info@iom.int</a>
+            </p>
+            <p>
+              Web:
+              <a href="https://dominicanrepublic.iom.int/es" target="_blank">iom.int</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </footer>
+
+    <!-- Scripts al final para mejor rendimiento -->
+    <script src="assets/js/dataManager.js"></script>
+    <script src="assets/js/index.js"></script>
+  </body>
+</html>

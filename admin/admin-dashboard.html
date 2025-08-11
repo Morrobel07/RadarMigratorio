@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Panel Admin</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <div class="admin-header">
+      <h1>Panel de Administración - Radar Migratorio</h1>
+      <button id="logout">Cerrar Sesión</button>
+    </div>
+
+    <nav class="admin-nav">
+      <button onclick="mostrarSeccion('estadisticas')">Estadísticas</button>
+      <button onclick="mostrarSeccion('denuncias')">Denuncias</button>
+      <button onclick="mostrarSeccion('papelera')">🗑️ Papelera</button>
+      <button onclick="mostrarSeccion('reportes')">Reportes</button>
+      <button onclick="mostrarSeccion('noticias')">Noticias</button>
+    </nav>
+
+    <main class="admin-content">
+      <!-- Estadísticas -->
+      <section id="estadisticas-admin" class="admin-section active">
+        <h2>Estadísticas del Sistema</h2>
+        <div id="stats-container"></div>
+      </section>
+
+      <!-- Denuncias -->
+      <section id="denuncias-admin" class="admin-section">
+        <h2>Gestionar Denuncias</h2>
+        <div class="filtros-admin">
+          <label for="estado-filtro">Filtrar por estado:</label>
+          <select id="estado-filtro">
+            <option value="todas">Todas las denuncias</option>
+            <option value="pendiente">🔄 Pendientes</option>
+            <option value="procesando">⚙️ En Proceso</option>
+            <option value="resuelto">✅ Resueltas</option>
+          </select>
+          <button onclick="exportarDenuncias()" class="btn-exportar">📊 Exportar CSV</button>
+          <button onclick="cargarDenuncias()" class="btn-refresh">🔄 Actualizar</button>
+        </div>
+        <div id="lista-denuncias"></div>
+      </section>
+
+      <!-- Papelera de Denuncias -->
+      <section id="papelera-admin" class="admin-section">
+        <h2>🗑️ Papelera de Denuncias</h2>
+        <div class="filtros-admin">
+          <p class="info-papelera">
+            <strong>ℹ️ Información:</strong>
+            Las denuncias eliminadas se almacenan aquí. Puedes restaurarlas o eliminarlas
+            permanentemente.
+          </p>
+          <div class="acciones-papelera">
+            <button onclick="cargarDenunciasEliminadas()" class="btn-refresh">🔄 Actualizar</button>
+            <button
+              onclick="vaciarPapelera()"
+              class="btn-danger"
+              title="Eliminar todas las denuncias permanentemente"
+            >
+              🗑️ Vaciar Papelera
+            </button>
+          </div>
+        </div>
+        <div id="lista-denuncias-eliminadas"></div>
+      </section>
+
+      <!-- Reportes -->
+      <section id="reportes-admin" class="admin-section">
+        <h2>Reportes de Actividad Sospechosa</h2>
+        <div id="lista-reportes"></div>
+      </section>
+
+      <!-- Noticias -->
+      <section id="noticias-admin" class="admin-section">
+        <h2>Gestionar Noticias</h2>
+        <form id="form-nueva-noticia">
+          <input type="text" id="titulo-noticia" placeholder="Título de la noticia" required />
+          <textarea
+            id="contenido-noticia"
+            placeholder="Contenido de la noticia"
+            required
+          ></textarea>
+          <select id="tipo-noticia">
+            <option value="noticia">Noticia General</option>
+            <option value="alerta">Alerta Importante</option>
+            <option value="regularizacion">Regularización</option>
+            <option value="estafa">Alerta de Estafa</option>
+          </select>
+          <button type="submit">Publicar Noticia</button>
+        </form>
+
+        <h3>Noticias Publicadas</h3>
+        <div id="lista-noticias"></div>
+      </section>
+    </main>
+
+    <script src="../assets/js/dataManager.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

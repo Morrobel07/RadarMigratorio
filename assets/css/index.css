@@ -1,0 +1,2033 @@
+/* Reset y fuentes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --azul-marino: #002147;
+  --blanco: #ffffff;
+  --gris: #f5f7fa;
+  --gris-medio: #e0e0e0;
+  --gris-oscuro: #555;
+  --rojo: #d7263d;
+  --rojo-hover: #aa1e30;
+  --sombra: 0 4px 24px rgba(0, 33, 71, 0.08);
+}
+
+/* Body */
+body {
+  background-color: var(--gris);
+  color: var(--azul-marino);
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: var(--azul-marino);
+  color: var(--blanco);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--sombra);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo img {
+  height: 44px;
+}
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+nav a {
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+nav a:hover {
+  color: var(--rojo);
+}
+
+.idioma select {
+  background: var(--blanco);
+  color: var(--azul-marino);
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.7rem;
+  font-weight: bold;
+}
+.acceso a {
+  color: var(--rojo);
+  background: var(--blanco);
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+.acceso a:hover {
+  background: var(--rojo);
+  color: var(--blanco);
+}
+
+/* Botones de acción en header */
+.acciones-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-denunciar,
+.btn-reportar {
+  padding: 0.6rem 1.3rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.btn-denunciar {
+  background: var(--rojo);
+  color: var(--blanco);
+}
+
+.btn-denunciar:hover {
+  background: var(--rojo-hover);
+  transform: translateY(-1px);
+}
+
+.btn-reportar {
+  background: transparent;
+  color: var(--blanco);
+  border: 2px solid var(--blanco);
+}
+
+.btn-reportar:hover {
+  background: var(--blanco);
+  color: var(--azul-marino);
+  transform: translateY(-1px);
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(120deg, var(--azul-marino) 80%, var(--rojo) 100%);
+  color: var(--blanco);
+  padding: 6rem 2rem 4rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+.contenido-hero {
+  max-width: 500px;
+}
+.hero h1 {
+  font-size: 2.7rem;
+  font-weight: bold;
+  margin-bottom: 1.2rem;
+  line-height: 1.15;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.botones-hero {
+  display: flex;
+  gap: 1rem;
+}
+.btn-primario,
+.btn-secundario {
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  border: none;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-primario {
+  background: var(--rojo);
+  color: var(--blanco);
+}
+.btn-primario:hover {
+  background: var(--rojo-hover);
+}
+.btn-secundario {
+  background: var(--blanco);
+  color: var(--azul-marino);
+  border: 2px solid var(--azul-marino);
+}
+.btn-secundario:hover {
+  background: var(--azul-marino);
+  color: var(--blanco);
+}
+.imagen-hero img {
+  width: 320px;
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: var(--sombra);
+}
+
+/* Secciones generales */
+section {
+  padding: 4rem 2rem;
+}
+section h2 {
+  color: var(--azul-marino);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Cards y grids */
+.cards-info,
+.derechos-grid,
+.tarjetas-historias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.card,
+.derecho,
+.tarjeta-historia {
+  background: var(--blanco);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  text-align: center;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.card:hover,
+.derecho:hover,
+.tarjeta-historia:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(0, 33, 71, 0.13);
+}
+.card .icono,
+.derecho .icono {
+  font-size: 2.5rem;
+  margin-bottom: 0.7rem;
+  color: var(--azul-marino);
+}
+.tarjeta-historia img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid var(--azul-marino);
+}
+.btn-leer {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--azul-marino);
+  color: var(--blanco);
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.btn-leer:hover {
+  background: var(--rojo);
+}
+
+.card.noticia {
+  border-left: 6px solid var(--azul-marino);
+  position: relative;
+}
+.card.noticia.alerta {
+  border-left: 6px solid var(--rojo);
+  background: #fff5f5;
+}
+.card.noticia .icono {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.card.noticia h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.7rem;
+}
+.card.noticia .fecha {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--gris-oscuro);
+  margin: 0.7rem 0 0.5rem 0;
+}
+
+/* Filtros y gráficas */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 2rem 0 2.5rem 0;
+  align-items: center;
+  justify-content: center;
+}
+.filtros label {
+  font-weight: bold;
+  color: var(--azul-marino);
+  margin-right: 0.5rem;
+}
+.filtros select {
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--gris-medio);
+  background: var(--blanco);
+  color: var(--azul-marino);
+  font-weight: 500;
+}
+.graficas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.graficas canvas {
+  max-width: 100% !important;
+  max-height: 400px !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.grafica {
+  background: var(--blanco);
+  border-radius: 10px;
+  box-shadow: var(--sombra);
+  padding: 2rem 1rem;
+  text-align: center;
+  min-height: 180px;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Formulario */
+.formulario-contacto {
+  max-width: 500px;
+  margin: 0 auto;
+  background: var(--blanco);
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: var(--sombra);
+}
+.formulario-contacto .campo {
+  margin-bottom: 1.2rem;
+}
+.formulario-contacto label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: var(--azul-marino);
+}
+.formulario-contacto input,
+.formulario-contacto textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--gris-medio);
+  border-radius: 4px;
+  background: var(--gris);
+  font-size: 1rem;
+  color: var(--azul-marino);
+}
+.btn-enviar {
+  background: var(--azul-marino);
+  color: var(--blanco);
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-enviar:hover {
+  background: var(--rojo);
+}
+
+/* Footer */
+.footer {
+  background: var(--azul-marino);
+  color: var(--blanco);
+  padding: 2rem 1rem;
+  text-align: center;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  margin-top: 3rem;
+}
+.footer-logo img {
+  height: 32px;
+  margin-bottom: 0.5rem;
+}
+.enlaces-footer a,
+.redes-footer a {
+  color: var(--blanco);
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.enlaces-footer a:hover,
+.redes-footer a:hover {
+  color: var(--rojo);
+}
+.creditos,
+.derechos {
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  color: var(--gris-medio);
+}
+
+/* Consulta de casos */
+.consulta-caso {
+  max-width: 500px;
+  margin: 3rem auto;
+  background: var(--blanco);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 33, 71, 0.08);
+}
+
+.consulta-caso h2 {
+  color: var(--azul-marino);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.consulta-caso p {
+  color: var(--gris-oscuro);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+#resultado-consulta {
+  margin-top: 2rem;
+}
+
+.caso-encontrado {
+  background: #e8f5e8;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #4caf50;
+}
+
+.caso-no-encontrado {
+  background: #ffeaa7;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #ffa500;
+}
+
+.detalle-caso p {
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+/* Estilos para lista de denuncias realizadas */
+.denuncias-lista {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.denuncias-lista h3 {
+  color: var(--azul-marino);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.denuncia-item {
+  background: var(--blanco);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--sombra);
+  border-left: 4px solid var(--azul-marino);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.denuncia-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 32px rgba(0, 33, 71, 0.12);
+}
+
+.denuncia-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--gris-medio);
+}
+
+.numero-caso {
+  font-weight: bold;
+  color: var(--azul-marino);
+  font-size: 1.1rem;
+}
+
+.fecha-denuncia {
+  color: var(--gris-oscuro);
+  font-size: 0.9rem;
+  background: var(--gris);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+}
+
+.estado-denuncia {
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.estado-pendiente {
+  background: #fff3e0;
+  color: #f57c00;
+  border-left-color: #f57c00;
+}
+
+.estado-procesando {
+  background: #e3f2fd;
+  color: #1976d2;
+  border-left-color: #1976d2;
+}
+
+.estado-resuelto {
+  background: #e8f5e8;
+  color: #388e3c;
+  border-left-color: #388e3c;
+}
+
+.denuncia-detalle {
+  margin: 1rem 0;
+  line-height: 1.6;
+  color: var(--gris-oscuro);
+}
+
+.denuncia-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.info-item strong {
+  color: var(--azul-marino);
+  min-width: 80px;
+}
+
+.ubicacion-coordenadas {
+  background: var(--gris);
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--gris-oscuro);
+}
+
+.sin-denuncias {
+  text-align: center;
+  padding: 3rem;
+  color: var(--gris-oscuro);
+  background: var(--blanco);
+  border-radius: 12px;
+  border: 2px dashed var(--gris-medio);
+}
+
+.sin-denuncias h4 {
+  color: var(--azul-marino);
+  margin-bottom: 1rem;
+}
+
+.btn-nueva-denuncia {
+  display: inline-block;
+  background: var(--rojo);
+  color: var(--blanco);
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+
+.btn-nueva-denuncia:hover {
+  background: var(--rojo-hover);
+  color: var(--blanco);
+}
+
+/* Mensaje de confirmación de denuncia */
+.mensaje-confirmacion {
+  background: #e8f5e8;
+  border: 1px solid #4caf50;
+  border-left: 4px solid #4caf50;
+  color: #2e7d32;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.mensaje-confirmacion h4 {
+  margin-bottom: 0.5rem;
+  color: #1b5e20;
+}
+
+.numero-caso-confirmacion {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  background: #c8e6c9;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+}
+
+/* Botón para actualizar ubicación */
+.btn-ubicacion {
+  background: var(--azul-marino);
+  color: var(--blanco);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.btn-ubicacion:hover {
+  background: #003366;
+}
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  .imagen-hero img {
+    width: 90vw;
+    max-width: 340px;
+  }
+}
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+    align-items: flex-start;
+  }
+  nav ul {
+    gap: 1rem;
+  }
+  section {
+    padding: 2.5rem 1rem;
+  }
+  .formulario-contacto {
+    padding: 1.2rem 0.5rem;
+  }
+}
+
+/* Formulario de inicio de seccion */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: linear-gradient(45deg, skyblue, darkblue);
+  padding: 30px;
+  width: 450px;
+  border-radius: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+  transition: background 0.3s ease;
+}
+
+.form:hover {
+  background: linear-gradient(45deg, darkblue, skyblue);
+}
+
+::placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form button {
+  align-self: flex-end;
+}
+
+.flex-column > label {
+  color: white;
+  font-weight: 600;
+}
+
+.inputForm {
+  border: 1.5px solid #ecedec;
+  border-radius: 10em;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  transition: 0.2s ease-in-out;
+  background-color: white;
+}
+
+.input {
+  margin-left: 10px;
+  border-radius: 10rem;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.inputForm:focus-within {
+  border: 1.5px solid orange;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.flex-row > div > label {
+  font-size: 14px;
+  color: black;
+  font-weight: 400;
+}
+
+.span {
+  font-size: 14px;
+  margin-left: 5px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button-submit {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  background: transparent;
+  transition: ease-out 0.5s;
+  border: 2px solid;
+  border-radius: 10em;
+  box-shadow: inset 0 0 0 0 blue;
+  margin: 20px 0 10px 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.button-submit:hover {
+  color: white;
+  box-shadow: inset 0 -100px 0 0 royalblue;
+}
+
+.button-submit:active {
+  transform: scale(0.9);
+}
+
+.p {
+  text-align: center;
+  color: white;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.btn {
+  margin-top: 10px;
+  width: 100%;
+  height: 50px;
+  border-radius: 10em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  gap: 10px;
+  border: 1px solid #ededef;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.btn:hover {
+  border: 1px solid orange;
+}
+
+/* Formulario de denuncia */
+.denuncia-formulario {
+  max-width: 420px;
+  margin: 3rem auto;
+  background: var(--blanco);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 33, 71, 0.08);
+}
+
+.denuncia-formulario h2 {
+  color: var(--azul-marino);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.denuncia-formulario p {
+  color: var(--gris-oscuro);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.denuncia-formulario label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: var(--azul-marino);
+}
+
+.denuncia-formulario input,
+.denuncia-formulario textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--gris-medio);
+  border-radius: 6px;
+  background: var(--gris);
+  font-size: 1rem;
+  color: var(--azul-marino);
+  margin-bottom: 1.2rem;
+  resize: vertical;
+}
+
+.denuncia-formulario button[type='submit'] {
+  background: var(--rojo);
+  color: var(--blanco);
+  padding: 0.8rem 0;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.denuncia-formulario button[type='submit']:hover {
+  background: var(--rojo-hover);
+}
+
+/* Contactos de Apoyo - versión compacta y fondo visible sobre azul */
+.contactos {
+  padding: 2rem 0.5rem;
+  background: var(--azul-marino);
+  border-top: 1px solid var(--gris-medio);
+}
+
+.contactos h2 {
+  text-align: center;
+  color: var(--blanco);
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+  font-weight: bold;
+}
+
+.contactos .cards-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+}
+
+.contactos .card {
+  background: var(--gris);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 33, 71, 0.07);
+  padding: 1rem 0.7rem;
+  text-align: left;
+  transition: transform 0.12s, box-shadow 0.12s;
+  border-left: 4px solid var(--rojo);
+  font-size: 0.95rem;
+}
+
+.contactos .card:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 4px 16px rgba(0, 33, 71, 0.1);
+}
+
+.contactos .card h3 {
+  color: var(--rojo);
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  font-weight: bold;
+}
+
+.contactos .card p {
+  color: var(--azul-marino);
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.contactos .card a {
+  color: var(--azul-marino);
+  text-decoration: underline;
+  word-break: break-all;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.contactos .card a:hover {
+  color: var(--rojo);
+}
+
+/* Portal de Recursos */
+.recursos {
+  padding: 3rem 1rem;
+  background: var(--gris);
+}
+.recursos h2 {
+  text-align: center;
+  color: var(--azul-marino);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.descripcion-portal {
+  text-align: center;
+  color: var(--gris-oscuro);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+.sistema-busquedas h3,
+.abusos-migratorios h3,
+.formulario-sospecha h3 {
+  color: var(--azul-marino);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.cards-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.card.buscado,
+.card.abuso {
+  background: var(--blanco);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 33, 71, 0.07);
+  padding: 1.2rem 1rem;
+  font-size: 0.98rem;
+  position: relative;
+}
+.card.buscado h4,
+.card.abuso h4 {
+  color: var(--rojo);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.card.buscado .alerta,
+.card.abuso .alerta-abuso {
+  display: inline-block;
+  background: var(--rojo);
+  color: var(--blanco);
+  padding: 0.2rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+.formulario-sospecha form {
+  max-width: 400px;
+  margin: 0 auto;
+  background: var(--blanco);
+  padding: 1.5rem 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 33, 71, 0.07);
+}
+.formulario-sospecha label {
+  font-weight: bold;
+  color: var(--azul-marino);
+}
+.formulario-sospecha input,
+.formulario-sospecha textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid var(--gris-medio);
+  border-radius: 6px;
+  background: var(--gris);
+  font-size: 1rem;
+  color: var(--azul-marino);
+  margin-bottom: 1.2rem;
+  resize: vertical;
+}
+.formulario-sospecha button[type='submit'] {
+  background: var(--rojo);
+  color: var(--blanco);
+  padding: 0.7rem 0;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 100%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.formulario-sospecha button[type='submit']:hover {
+  background: var(--rojo-hover);
+}
+
+/* Detalle de noticia/alerta */
+.detalle-noticia {
+  max-width: 600px;
+  margin: 3rem auto;
+  background: var(--blanco);
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 33, 71, 0.08);
+}
+
+.detalle-noticia h1 {
+  color: var(--rojo);
+  font-size: 1.7rem;
+  margin-bottom: 0.7rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.detalle-noticia .fecha {
+  display: block;
+  color: var(--gris-oscuro);
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.detalle-noticia .contenido-noticia {
+  color: var(--azul-marino);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.detalle-noticia ul {
+  margin: 0.7rem 0 1.2rem 1.2rem;
+  padding-left: 1.2rem;
+}
+
+.detalle-noticia a {
+  color: var(--azul-marino);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.detalle-noticia a:hover {
+  color: var(--rojo);
+}
+
+/* Estilos responsivos para denuncias */
+@media (max-width: 768px) {
+  .denuncias-lista {
+    padding: 0 0.5rem;
+  }
+
+  .denuncia-item {
+    padding: 1rem;
+  }
+
+  .denuncia-header {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .denuncia-info {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .info-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  .numero-caso {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .denuncia-formulario {
+    margin: 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .denuncias-lista h3 {
+    font-size: 1.2rem;
+  }
+
+  .estado-denuncia {
+    font-size: 0.8rem;
+  }
+}
+
+/* === ESTILOS PARA REPORTES DE ACTIVIDAD SOSPECHOSA === */
+
+.reporte-formulario {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 3rem;
+  background: var(--blanco);
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+}
+
+.reporte-formulario h2 {
+  font-size: 2rem;
+  color: var(--azul-marino);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.descripcion-reporte {
+  font-size: 1.1rem;
+  color: var(--gris-oscuro);
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.tipos-reportes {
+  background: var(--gris);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.tipos-reportes h3 {
+  color: var(--azul-marino);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.tipos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.tipo-card {
+  background: var(--blanco);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.tipo-card:hover {
+  border-color: var(--azul-marino);
+  transform: translateY(-2px);
+}
+
+.tipo-card .icono {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.tipo-card h4 {
+  color: var(--azul-marino);
+  margin-bottom: 0.5rem;
+}
+
+.tipo-card p {
+  color: var(--gris-oscuro);
+  font-size: 0.9rem;
+}
+
+.campo-contacto {
+  background: var(--gris);
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.campo-contacto h4 {
+  color: var(--azul-marino);
+  margin-bottom: 0.5rem;
+}
+
+.nota-confidencial {
+  color: var(--gris-oscuro);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 33, 71, 0.05);
+  border-left: 4px solid var(--azul-marino);
+  border-radius: 4px;
+}
+
+.terminos-reporte {
+  margin: 2rem 0;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.checkbox-container input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.mensaje {
+  padding: 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  display: none;
+  font-weight: bold;
+}
+
+.mensaje-exito {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.mensaje-error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.mensaje-warning {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.btn-ubicacion {
+  background: var(--azul-marino);
+  color: var(--blanco);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+
+.btn-ubicacion:hover {
+  background: var(--gris-oscuro);
+}
+
+.btn-ubicacion:disabled {
+  background: var(--gris-medio);
+  cursor: not-allowed;
+}
+
+/* Mis reportes */
+.mis-reportes {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--gris-medio);
+}
+
+.mis-reportes h3 {
+  color: var(--azul-marino);
+  margin-bottom: 1rem;
+}
+
+.reporte-card {
+  background: var(--blanco);
+  border: 1px solid var(--gris-medio);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reporte-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.reporte-id {
+  font-weight: bold;
+  color: var(--azul-marino);
+}
+
+.reporte-badges {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.badge-estado {
+  background: var(--gris-medio);
+  color: var(--gris-oscuro);
+}
+
+.badge-prioridad {
+  background: var(--azul-marino);
+  color: var(--blanco);
+}
+
+.badge-tipo {
+  background: var(--rojo);
+  color: var(--blanco);
+}
+
+.reporte-estado {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.estado-pendiente {
+  background: #fff3cd;
+  color: #856404;
+}
+.estado-en_revision {
+  background: #cce5ff;
+  color: #0066cc;
+}
+.estado-en_investigacion {
+  background: #ffe6cc;
+  color: #cc6600;
+}
+.estado-resuelto {
+  background: #d4edda;
+  color: #155724;
+}
+.estado-archivado {
+  background: #e2e3e5;
+  color: #6c757d;
+}
+
+.reporte-prioridad {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.prioridad-baja {
+  background: #d4edda;
+  color: #155724;
+}
+.prioridad-media {
+  background: #fff3cd;
+  color: #856404;
+}
+.prioridad-alta {
+  background: #ffe6cc;
+  color: #cc6600;
+}
+.prioridad-urgente {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.sin-reportes {
+  text-align: center;
+  padding: 2rem;
+  color: var(--gris-oscuro);
+}
+
+/* Estilos para admin - reportes */
+.filtros-reportes {
+  background: var(--gris);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filtros-reportes label {
+  font-weight: bold;
+  color: var(--azul-marino);
+}
+
+.filtros-reportes select {
+  padding: 0.5rem;
+  border: 1px solid var(--gris-medio);
+  border-radius: 4px;
+  background: var(--blanco);
+}
+
+.reportes-counter {
+  background: var(--azul-marino);
+  color: var(--blanco);
+  padding: 0.8rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.error-reportes {
+  text-align: center;
+  padding: 2rem;
+  background: #f8d7da;
+  color: #721c24;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.btn-retry {
+  background: var(--azul-marino);
+  color: var(--blanco);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.descripcion-completa,
+.personas-involucradas,
+.evidencia-info {
+  background: var(--gris);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  border-left: 4px solid var(--azul-marino);
+}
+
+.contacto-reportante {
+  background: rgba(215, 38, 61, 0.1);
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+  border: 1px solid rgba(215, 38, 61, 0.3);
+}
+
+.contacto-reportante h4 {
+  color: var(--rojo);
+  margin-bottom: 0.5rem;
+}
+
+.anonimo {
+  color: var(--gris-oscuro);
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+  background: var(--gris);
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.reporte-acciones {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--gris-medio);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.estado-selector {
+  padding: 0.5rem;
+  border: 1px solid var(--gris-medio);
+  border-radius: 4px;
+  background: var(--blanco);
+  color: var(--azul-marino);
+}
+
+.btn-ver {
+  background: var(--azul-marino);
+  color: var(--blanco);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-eliminar {
+  background: var(--rojo);
+  color: var(--blanco);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-ver:hover {
+  background: var(--gris-oscuro);
+}
+
+.btn-eliminar:hover {
+  background: var(--rojo-hover);
+}
+
+/* Responsive para reportes */
+@media (max-width: 768px) {
+  .reporte-formulario {
+    margin: 1rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .tipos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .acciones-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btn-denunciar,
+  .btn-reportar {
+    width: 100%;
+    text-align: center;
+  }
+
+  .reporte-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reporte-acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .estado-selector,
+  .btn-ver,
+  .btn-eliminar {
+    width: 100%;
+  }
+}
+
+/* === ESTILOS MEJORADOS PARA REPORTES DE ACTIVIDAD SOSPECHOSA === */
+
+/* Sobrescribir estilos existentes con versiones mejoradas */
+.reporte-formulario {
+  max-width: 1000px !important;
+  margin: 2rem auto !important;
+  padding: 0 1rem !important;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 15px 35px rgba(0, 33, 71, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07) !important;
+  overflow: hidden;
+  position: relative;
+  min-height: auto;
+}
+
+.reporte-formulario::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--rojo) 0%, var(--azul-marino) 50%, var(--rojo) 100%);
+}
+
+.reporte-formulario-inner {
+  padding: 3rem 2.5rem;
+  background: var(--blanco);
+  margin: 0.5rem;
+  border-radius: 16px;
+  min-height: auto;
+}
+
+.reporte-formulario h2 {
+  font-size: 2.5rem !important;
+  color: var(--azul-marino) !important;
+  margin-bottom: 1rem !important;
+  text-align: center !important;
+  font-weight: 700;
+  position: relative;
+}
+
+.reporte-formulario h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--rojo), var(--azul-marino));
+  margin: 0.5rem auto;
+  border-radius: 2px;
+}
+
+.descripcion-reporte {
+  font-size: 1.15rem !important;
+  color: var(--gris-oscuro) !important;
+  text-align: center !important;
+  margin-bottom: 3rem !important;
+  line-height: 1.7;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tipos-reportes {
+  background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%) !important;
+  padding: 2.5rem !important;
+  border-radius: 16px !important;
+  margin-bottom: 3rem !important;
+  border: 1px solid rgba(0, 33, 71, 0.08);
+}
+
+.tipos-reportes h3 {
+  color: var(--azul-marino) !important;
+  margin-bottom: 1.5rem !important;
+  text-align: center !important;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.tipos-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+.tipo-card {
+  background: var(--blanco) !important;
+  padding: 2rem !important;
+  border-radius: 12px !important;
+  text-align: center !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+  border: 2px solid transparent !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.tipo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--rojo), var(--azul-marino));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tipo-card:hover {
+  border-color: var(--azul-marino) !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 25px rgba(0, 33, 71, 0.15) !important;
+}
+
+.tipo-card:hover::before {
+  transform: scaleX(1);
+}
+
+.tipo-card .icono {
+  font-size: 2.5rem !important;
+  display: block !important;
+  margin-bottom: 1rem !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.tipo-card h4 {
+  color: var(--azul-marino) !important;
+  margin-bottom: 0.8rem !important;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.tipo-card p {
+  color: var(--gris-oscuro) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5;
+}
+
+/* Mejorar campos del formulario */
+.reporte-formulario .campo {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.reporte-formulario .campo label {
+  display: block;
+  color: var(--azul-marino);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.reporte-formulario .campo input,
+.reporte-formulario .campo textarea,
+.reporte-formulario .campo select {
+  width: 100%;
+  padding: 1rem 1.5rem !important;
+  border: 2px solid var(--gris-medio) !important;
+  border-radius: 12px !important;
+  font-size: 1rem !important;
+  background: var(--blanco) !important;
+  transition: all 0.3s ease !important;
+  font-family: inherit;
+}
+
+.reporte-formulario .campo input:focus,
+.reporte-formulario .campo textarea:focus,
+.reporte-formulario .campo select:focus {
+  outline: none !important;
+  border-color: var(--azul-marino) !important;
+  box-shadow: 0 0 0 3px rgba(0, 33, 71, 0.1) !important;
+  transform: translateY(-1px);
+}
+
+.reporte-formulario .campo textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.campo-contacto {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+  padding: 2.5rem !important;
+  border-radius: 16px !important;
+  margin: 2rem 0 !important;
+  border: 1px solid rgba(0, 33, 71, 0.08) !important;
+}
+
+.campo-contacto h4 {
+  color: var(--azul-marino) !important;
+  margin-bottom: 1rem !important;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.campo-contacto h4::before {
+  content: '🔒';
+  font-size: 1.1rem;
+}
+
+.nota-confidencial {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 33, 71, 0.05) 0%,
+    rgba(0, 33, 71, 0.02) 100%
+  ) !important;
+  color: var(--gris-oscuro) !important;
+  font-size: 0.95rem !important;
+  margin-bottom: 2rem !important;
+  padding: 1.5rem !important;
+  border-left: 4px solid var(--azul-marino) !important;
+  border-radius: 8px !important;
+  position: relative;
+}
+
+.nota-confidencial::before {
+  content: 'ℹ️';
+  position: absolute;
+  left: -2px;
+  top: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.terminos-reporte {
+  background: linear-gradient(135deg, #f1f3f4 0%, #e8eaed 100%) !important;
+  padding: 2rem !important;
+  border-radius: 12px !important;
+  margin: 2rem 0 !important;
+}
+
+.checkbox-container {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 1rem !important;
+  cursor: pointer !important;
+  font-size: 1rem !important;
+  line-height: 1.6;
+  color: var(--azul-marino);
+}
+
+.checkbox-container input[type='checkbox'] {
+  width: 20px !important;
+  height: 20px !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  accent-color: var(--azul-marino);
+}
+
+/* Botones mejorados */
+.reporte-formulario button[type='submit'] {
+  background: linear-gradient(135deg, var(--rojo) 0%, #c41e3a 100%) !important;
+  color: var(--blanco) !important;
+  padding: 1.2rem 3rem !important;
+  border: none !important;
+  border-radius: 50px !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative;
+  overflow: hidden;
+  margin: 1rem auto !important;
+  display: block !important;
+  min-width: 200px;
+}
+
+.reporte-formulario button[type='submit']:hover:not(:disabled) {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(215, 38, 61, 0.3) !important;
+}
+
+.reporte-formulario button[type='submit']:disabled {
+  background: var(--gris-medio) !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.reporte-formulario .btn-secundario {
+  background: transparent !important;
+  color: var(--azul-marino) !important;
+  border: 2px solid var(--azul-marino) !important;
+  padding: 0.8rem 1.5rem !important;
+  border-radius: 25px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  margin-top: 1rem !important;
+}
+
+.reporte-formulario .btn-secundario:hover {
+  background: var(--azul-marino) !important;
+  color: var(--blanco) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Mensajes mejorados */
+.reporte-formulario .mensaje {
+  padding: 1.5rem !important;
+  border-radius: 12px !important;
+  margin: 1.5rem 0 !important;
+  display: none !important;
+  font-weight: 500 !important;
+  position: relative;
+  border-left: 4px solid;
+}
+
+.reporte-formulario .mensaje-exito {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%) !important;
+  color: #155724 !important;
+  border-left-color: #28a745 !important;
+}
+
+.reporte-formulario .mensaje-error {
+  background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%) !important;
+  color: #721c24 !important;
+  border-left-color: #dc3545 !important;
+}
+
+.reporte-formulario .mensaje-warning {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%) !important;
+  color: #856404 !important;
+  border-left-color: #ffc107 !important;
+}
+
+/* Responsive mejorado para reportes */
+@media (max-width: 768px) {
+  .reporte-formulario {
+    margin: 1rem 1.5rem !important;
+    max-width: calc(100% - 3rem) !important;
+  }
+
+  .reporte-formulario-inner {
+    padding: 2.5rem 2rem !important;
+    margin: 0.25rem !important;
+  }
+
+  .reporte-formulario h2 {
+    font-size: 2rem !important;
+    padding: 0 1rem !important;
+  }
+
+  .descripcion-reporte {
+    padding: 0 1rem !important;
+    font-size: 1.05rem !important;
+  }
+
+  .tipos-reportes {
+    padding: 2rem 1.5rem !important;
+    margin: 1.5rem 0 !important;
+  }
+
+  .tipos-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  .tipo-card {
+    padding: 2rem 1.5rem !important;
+    margin: 0.5rem 0 !important;
+  }
+
+  .reporte-formulario .campo {
+    margin-bottom: 1.5rem !important;
+    padding: 0 0.5rem !important;
+  }
+
+  .reporte-formulario .campo label {
+    padding: 0 0.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .reporte-formulario .campo input,
+  .reporte-formulario .campo textarea,
+  .reporte-formulario .campo select {
+    padding: 1.2rem 1.5rem !important;
+    margin: 0 !important;
+  }
+
+  .campo-contacto {
+    padding: 2rem 1.5rem !important;
+    margin: 1.5rem 0.5rem !important;
+  }
+
+  .nota-confidencial {
+    padding: 1.5rem 1.2rem !important;
+    margin: 1.5rem 0.5rem 2rem 0.5rem !important;
+  }
+
+  .terminos-reporte {
+    padding: 2rem 1.5rem !important;
+    margin: 1.5rem 0.5rem !important;
+  }
+
+  .checkbox-container {
+    padding: 0 0.5rem !important;
+  }
+
+  .reporte-formulario button[type='submit'] {
+    width: calc(100% - 2rem) !important;
+    margin: 2rem 1rem 1rem 1rem !important;
+    padding: 1.2rem 2rem !important;
+  }
+
+  .reporte-formulario .btn-secundario {
+    margin: 1rem 0.5rem !important;
+    padding: 1rem 1.5rem !important;
+  }
+}
+
+/* Responsive para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .reporte-formulario {
+    margin: 0.5rem 1rem !important;
+    max-width: calc(100% - 2rem) !important;
+  }
+
+  .reporte-formulario-inner {
+    padding: 2rem 1.5rem !important;
+    margin: 0.25rem !important;
+  }
+
+  .reporte-formulario h2 {
+    font-size: 1.8rem !important;
+    padding: 0 0.5rem !important;
+  }
+
+  .descripcion-reporte {
+    padding: 0 0.5rem !important;
+    font-size: 1rem !important;
+  }
+
+  .tipos-reportes {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .tipo-card {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .reporte-formulario .campo {
+    padding: 0 0.25rem !important;
+  }
+
+  .reporte-formulario .campo label {
+    padding: 0 0.25rem !important;
+  }
+
+  .campo-contacto {
+    padding: 1.5rem 1rem !important;
+    margin: 1rem 0.25rem !important;
+  }
+
+  .nota-confidencial {
+    padding: 1.2rem 1rem !important;
+    margin: 1rem 0.25rem 1.5rem 0.25rem !important;
+  }
+
+  .terminos-reporte {
+    padding: 1.5rem 1rem !important;
+    margin: 1rem 0.25rem !important;
+  }
+
+  .reporte-formulario button[type='submit'] {
+    width: calc(100% - 1rem) !important;
+    margin: 1.5rem 0.5rem 1rem 0.5rem !important;
+  }
+}
