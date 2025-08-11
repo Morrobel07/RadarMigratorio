@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagnóstico - Radar Migratorio</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      .test {
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+      .success {
+        background: #d4edda;
+        border-color: #c3e6cb;
+      }
+      .error {
+        background: #f8d7da;
+        border-color: #f5c6cb;
+      }
+      .info {
+        background: #d1ecf1;
+        border-color: #bee5eb;
+      }
+      pre {
+        background: #f8f9fa;
+        padding: 10px;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔧 Diagnóstico del Sistema</h1>
+
+    <div id="test-results"></div>
+
+    <script src="../assets/js/dataManager.js"></script>
+    <script>
+      function runDiagnostics() {
+        const results = document.getElementById('test-results')
+        let html = ''
+
+        // Test 1: DataManager cargado
+        try {
+          html += `<div class="test ${typeof DataManager !== 'undefined' ? 'success' : 'error'}">
+                    <strong>Test 1:</strong> DataManager cargado - ${
+                      typeof DataManager !== 'undefined' ? '✅ SÍ' : '❌ NO'
+                    }
+                </div>`
+        } catch (e) {
+          html += `<div class="test error"><strong>Test 1:</strong> Error - ${e.message}</div>`
+        }
+
+        // Test 2: Instancia de DataManager
+        try {
+          const dm = new DataManager()
+          html += `<div class="test success">
+                    <strong>Test 2:</strong> Instancia creada - ✅ SÍ
+                </div>`
+
+          // Test 3: Métodos disponibles
+          const metodos = ['obtenerDenuncias', 'agregarDenuncia', 'obtenerEstadisticas']
+          metodos.forEach((metodo) => {
+            const existe = typeof dm[metodo] === 'function'
+            html += `<div class="test ${existe ? 'success' : 'error'}">
+                        <strong>Test 3.${
+                          metodos.indexOf(metodo) + 1
+                        }:</strong> Método ${metodo} - ${existe ? '✅ SÍ' : '❌ NO'}
+                    </div>`
+          })
+
+          // Test 4: Obtener denuncias
+          try {
+            const denuncias = dm.obtenerDenuncias()
+            html += `<div class="test success">
+                        <strong>Test 4:</strong> Obtener denuncias - ✅ SÍ (${
+                          denuncias.length
+                        } encontradas)
+                        <pre>${JSON.stringify(denuncias, null, 2)}</pre>
+                    </div>`
+          } catch (e) {
+            html += `<div class="test error">
+                        <strong>Test 4:</strong> Error obteniendo denuncias - ${e.message}
+                    </div>`
+          }
+
+          // Test 5: Obtener estadísticas
+          try {
+            const stats = dm.obtenerEstadisticas()
+            html += `<div class="test success">
+                        <strong>Test 5:</strong> Obtener estadísticas - ✅ SÍ
+                        <pre>${JSON.stringify(stats, null, 2)}</pre>
+                    </div>`
+          } catch (e) {
+            html += `<div class="test error">
+                        <strong>Test 5:</strong> Error obteniendo estadísticas - ${e.message}
+                    </div>`
+          }
+
+          // Test 6: LocalStorage
+          try {
+            const keys = Object.keys(localStorage).filter((k) => k.startsWith('radarMigratorio_'))
+            html += `<div class="test info">
+                        <strong>Test 6:</strong> LocalStorage keys encontradas: ${keys.length}
+                        <pre>${JSON.stringify(keys, null, 2)}</pre>
+                    </div>`
+          } catch (e) {
+            html += `<div class="test error">
+                        <strong>Test 6:</strong> Error accediendo localStorage - ${e.message}
+                    </div>`
+          }
+        } catch (e) {
+          html += `<div class="test error"><strong>Test 2:</strong> Error creando instancia - ${e.message}</div>`
+        }
+
+        results.innerHTML = html
+      }
+
+      // Ejecutar diagnósticos cuando cargue la página
+      document.addEventListener('DOMContentLoaded', runDiagnostics)
+    </script>
+  </body>
+</html>
+

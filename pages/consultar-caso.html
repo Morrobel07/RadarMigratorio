@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultar Estado de Caso</title>
+    <link rel="stylesheet" href="../assets/css/index.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="../index.html">
+          <img src="../assets/img/RadarMigratorio_.svg" alt="logo de la Marca" />
+        </a>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="denuncia.html">Denunciar</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="consulta-caso">
+        <h2>Consultar Estado de Caso</h2>
+        <p>Ingrese su número de caso para consultar el estado de su denuncia</p>
+        <form id="form-consulta">
+          <div class="campo">
+            <label for="numero-caso">Número de Caso:</label>
+            <input type="text" id="numero-caso" placeholder="RM-XXXX-XXXX" required />
+          </div>
+          <button type="submit" class="btn-primario">Consultar</button>
+          <div id="resultado-consulta"></div>
+        </form>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-logo">
+        <img src="../assets/img/RadarMigratorio_.svg" alt="Logo Footer" />
+      </div>
+      <div class="enlaces-footer">
+        <a href="../index.html">Inicio</a>
+        <a href="denuncia.html">Denunciar</a>
+      </div>
+      <div class="creditos">Radar Migratorio RD &copy; 2025</div>
+    </footer>
+    <script src="../assets/js/consultar-caso.js"></script>
+  </body>
+</html>
+
