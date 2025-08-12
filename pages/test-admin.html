@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Admin - Radar Migratorio</title>
+    <link rel="stylesheet" href="admin.css" />
+    <style>
+      body {
+        padding: 20px;
+      }
+      .test-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .test-header {
+        background: #002147;
+        color: white;
+        padding: 1rem;
+        margin-bottom: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test-container">
+      <div class="test-header">
+        <h1>🧪 Test Panel Admin - Denuncias</h1>
+        <p>Panel de prueba para verificar la funcionalidad de denuncias</p>
+      </div>
+
+      <div class="filtros-admin">
+        <label for="estado-filtro">Filtrar por estado:</label>
+        <select id="estado-filtro">
+          <option value="todas">Todas las denuncias</option>
+          <option value="pendiente">🔄 Pendientes</option>
+          <option value="procesando">⚙️ En Proceso</option>
+          <option value="resuelto">✅ Resueltas</option>
+        </select>
+        <button onclick="exportarDenuncias()" class="btn-exportar">📊 Exportar CSV</button>
+        <button onclick="cargarDenuncias()" class="btn-refresh">🔄 Actualizar</button>
+        <button onclick="reiniciarDatos()" class="btn-refresh" style="background: #f44336">
+          🗑️ Reiniciar Datos
+        </button>
+      </div>
+
+      <div id="lista-denuncias"></div>
+    </div>
+
+    <script src="../RadarMigratorio/dataManager.js"></script>
+    <script>
+      // Función para reiniciar datos de prueba
+      function reiniciarDatos() {
+        if (confirm('¿Estás seguro de reiniciar todos los datos?')) {
+          localStorage.clear()
+          location.reload()
+        }
+      }
+
+      // Inicializar cuando cargue la página
+      document.addEventListener('DOMContentLoaded', function () {
+        console.log('Iniciando test admin...')
+
+        // Verificar DataManager
+        if (typeof DataManager === 'undefined') {
+          document.getElementById('lista-denuncias').innerHTML =
+            '<p style="color: red;">Error: DataManager no cargado</p>'
+          return
+        }
+
+        // Cargar funciones del admin
+        cargarDenuncias()
+
+        // Agregar evento al filtro
+        document.getElementById('estado-filtro').addEventListener('change', cargarDenuncias)
+      })
+    </script>
+    <script src="admin.js"></script>
+  </body>
+</html>
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Reportar actividad sospechosa - Radar Migratorio RD" />
+    <title>Reportar Actividad Sospechosa - Radar Migratorio</title>
+    <link rel="stylesheet" href="../assets/css/index.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="../index.html">
+          <img src="../assets/img/RadarMigratorio_.svg" alt="logo de la Marca" />
+        </a>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="denuncia.html">Denunciar</a></li>
+          <li><a href="../admin/admin-login.html">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="reporte-formulario">
+        <h2>🔍 Reportar Actividad Sospechosa</h2>
+        <p class="descripcion-reporte">
+          Si has observado alguna actividad migratoria sospechosa, comportamiento irregular o
+          situaciones que requieren atención de las autoridades, puedes reportarla aquí de forma
+          anónima.
+        </p>
+
+        <div class="tipos-reportes">
+          <h3>Tipos de reportes que puedes hacer:</h3>
+          <div class="tipos-grid">
+            <div class="tipo-card">
+              <span class="icono">⚠️</span>
+              <h4>Actividad Irregular</h4>
+              <p>Documentos falsos, tráfico de personas, actividades no autorizadas</p>
+            </div>
+            <div class="tipo-card">
+              <span class="icono">🏢</span>
+              <h4>Establecimientos</h4>
+              <p>Negocios que no cumplen normativas migratorias</p>
+            </div>
+            <div class="tipo-card">
+              <span class="icono">💼</span>
+              <h4>Trabajo Irregular</h4>
+              <p>Empleo sin permisos, explotación laboral</p>
+            </div>
+            <div class="tipo-card">
+              <span class="icono">🚨</span>
+              <h4>Situación Urgente</h4>
+              <p>Casos que requieren atención inmediata</p>
+            </div>
+          </div>
+        </div>
+
+        <form id="form-reporte-actividad">
+          <div class="campo">
+            <label for="tipo-actividad">Tipo de actividad sospechosa:</label>
+            <select id="tipo-actividad" required>
+              <option value="">Selecciona el tipo</option>
+              <option value="documentos-falsos">📄 Documentos Falsos</option>
+              <option value="trafico-personas">🚶 Tráfico de Personas</option>
+              <option value="trabajo-irregular">💼 Trabajo Irregular</option>
+              <option value="establecimiento-irregular">🏢 Establecimiento Irregular</option>
+              <option value="corrupcion">⚖️ Corrupción</option>
+              <option value="otro">📝 Otro</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="descripcion-actividad">Descripción detallada de la actividad:</label>
+            <textarea
+              id="descripcion-actividad"
+              rows="5"
+              required
+              placeholder="Describe lo que observaste: qué sucedió, cuándo, dónde, quiénes estaban involucrados..."
+            ></textarea>
+          </div>
+
+          <div class="campo">
+            <label for="ubicacion-actividad">Ubicación donde ocurrió:</label>
+            <input
+              type="text"
+              id="ubicacion-actividad"
+              required
+              placeholder="Dirección, provincia, municipio o referencias del lugar"
+            />
+            <button type="button" id="btn-ubicacion-reporte" class="btn-secundario">
+              📍 Usar mi ubicación
+            </button>
+          </div>
+
+          <div class="campo">
+            <label for="fecha-actividad">Fecha y hora del incidente:</label>
+            <input type="datetime-local" id="fecha-actividad" />
+          </div>
+
+          <div class="campo">
+            <label for="personas-involucradas">Personas involucradas (opcional):</label>
+            <textarea
+              id="personas-involucradas"
+              rows="3"
+              placeholder="Descripciones, nombres si los conoces, cantidad de personas..."
+            ></textarea>
+          </div>
+
+          <div class="campo">
+            <label for="evidencia-descripcion">¿Tienes evidencia? (opcional):</label>
+            <textarea
+              id="evidencia-descripcion"
+              rows="2"
+              placeholder="Describe si tienes fotos, videos, documentos o testigos..."
+            ></textarea>
+          </div>
+
+          <div class="campo">
+            <label for="prioridad-reporte">Nivel de urgencia:</label>
+            <select id="prioridad-reporte" required>
+              <option value="baja">🟢 Baja - Puede esperar</option>
+              <option value="media">🟡 Media - Importante</option>
+              <option value="alta">🟠 Alta - Requiere atención pronta</option>
+              <option value="urgente">🔴 Urgente - Situación crítica</option>
+            </select>
+          </div>
+
+          <div class="campo-contacto">
+            <h4>Información de contacto (opcional y confidencial)</h4>
+            <p class="nota-confidencial">
+              ℹ️ Proporcionar tu información de contacto es opcional. Si la incluyes, las
+              autoridades podrán contactarte para más detalles, pero se mantendrá confidencial.
+            </p>
+
+            <div class="campo">
+              <label for="nombre-reportante">Tu nombre (opcional):</label>
+              <input type="text" id="nombre-reportante" placeholder="Nombre y apellido" />
+            </div>
+
+            <div class="campo">
+              <label for="telefono-reportante">Teléfono (opcional):</label>
+              <input type="tel" id="telefono-reportante" placeholder="Número de teléfono" />
+            </div>
+
+            <div class="campo">
+              <label for="email-reportante">Correo electrónico (opcional):</label>
+              <input type="email" id="email-reportante" placeholder="correo@ejemplo.com" />
+            </div>
+          </div>
+
+          <div class="terminos-reporte">
+            <label class="checkbox-container">
+              <input type="checkbox" id="acepto-terminos" required />
+              <span class="checkmark"></span>
+              Confirmo que la información proporcionada es veraz y entiendo que hacer reportes
+              falsos puede tener consecuencias legales.
+            </label>
+          </div>
+
+          <button type="submit" class="btn-primario" disabled>📤 Enviar Reporte</button>
+
+          <div id="mensaje-reporte"></div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-logo">
+        <img src="../assets/img/RadarMigratorio_.svg" alt="Logo Footer" />
+      </div>
+      <div class="enlaces-footer">
+        <a href="../index.html">Inicio</a>
+        <a href="denuncia.html">Denunciar</a>
+      </div>
+      <div class="creditos">Radar Migratorio RD &copy; 2025</div>
+    </footer>
+
+    <script src="../assets/js/dataManager.js"></script>
+    <script src="../assets/js/reporte-actividad.js"></script>
+  </body>
+</html>

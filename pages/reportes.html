@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generar Reportes</title>
+    <link rel="stylesheet" href="../assets/css/index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="../index.html">
+          <img src="../assets/img/RadarMigratorio_.svg" alt="logo de la Marca" />
+        </a>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="admin-login.html">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="generar-reportes">
+        <h2>Generar Reportes</h2>
+        <div class="filtros-reporte">
+          <label for="fecha-inicio">Fecha inicio:</label>
+          <input type="date" id="fecha-inicio" />
+
+          <label for="fecha-fin">Fecha fin:</label>
+          <input type="date" id="fecha-fin" />
+
+          <label for="estado-reporte">Estado:</label>
+          <select id="estado-reporte">
+            <option value="todos">Todos</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="investigando">Investigando</option>
+            <option value="resuelto">Resuelto</option>
+          </select>
+
+          <button id="btn-generar-pdf" class="btn-primario">Generar PDF</button>
+          <button id="btn-exportar-excel" class="btn-secundario">Exportar Excel</button>
+        </div>
+
+        <div id="preview-reporte">
+          <h3>Vista Previa del Reporte</h3>
+          <div id="contenido-reporte"></div>
+        </div>
+      </section>
+    </main>
+    <script src="../assets/js/reportes.js"></script>
+  </body>
+</html>
+
